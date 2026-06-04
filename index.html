@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis Hari Lahir Pancasila</title>
+<title>Portal Edukasi Pancasila</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -22,408 +22,157 @@
     --salah: #c62828;
     --salah-bg: #ffebee;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: var(--putih);
-    color: var(--teks);
-    display: flex;
-    min-height: 100vh;
-  }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--putih); color: var(--teks); display: flex; min-height: 100vh; }
 
   /* ── SIDEBAR ── */
-  .sidebar {
-    width: var(--sidebar-w);
-    background: var(--sidebar-bg);
-    color: #e8e0d4;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    z-index: 100;
-    overflow-y: auto;
-  }
-
-  .sidebar-logo {
-    padding: 28px 24px 20px;
-    border-bottom: 1px solid #2e2820;
-  }
-
-  .sidebar-logo .garuda {
-    font-size: 36px;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .sidebar-logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--emas-muda);
-    line-height: 1.3;
-    letter-spacing: 0.5px;
-  }
-
-  .sidebar-logo p {
-    font-size: 11px;
-    color: var(--abu-tua);
-    margin-top: 4px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .sidebar-nav {
-    padding: 20px 0;
-    flex: 1;
-  }
-
-  .nav-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--abu-tua);
-    padding: 0 24px 10px;
-  }
-
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-left: 3px solid transparent;
-    transition: all 0.2s;
-    font-size: 14px;
-    color: #b0a89e;
-    text-decoration: none;
-  }
-
-  .nav-item:hover {
-    background: #2e2820;
-    color: var(--emas-muda);
-    border-left-color: var(--emas);
-  }
-
-  .nav-item.active {
-    background: #2e2820;
-    color: var(--emas-muda);
-    border-left-color: var(--merah);
-    font-weight: 600;
-  }
-
+  .sidebar { width: var(--sidebar-w); background: var(--sidebar-bg); color: #e8e0d4; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; overflow-y: auto; }
+  .sidebar-logo { padding: 28px 24px 20px; border-bottom: 1px solid #2e2820; }
+  .sidebar-logo .garuda { font-size: 36px; display: block; margin-bottom: 8px; }
+  .sidebar-logo h1 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--emas-muda); line-height: 1.3; letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 11px; color: var(--abu-tua); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .sidebar-nav { padding: 20px 0; flex: 1; }
+  .nav-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--abu-tua); padding: 0 24px 10px; }
+  .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 24px; cursor: pointer; border-left: 3px solid transparent; transition: all 0.2s; font-size: 14px; color: #b0a89e; text-decoration: none; }
+  .nav-item:hover { background: #2e2820; color: var(--emas-muda); border-left-color: var(--emas); }
+  .nav-item.active { background: #2e2820; color: var(--emas-muda); border-left-color: var(--merah); font-weight: 600; }
   .nav-item .icon { font-size: 16px; width: 20px; text-align: center; }
-
-  .sidebar-progress {
-    padding: 20px 24px;
-    border-top: 1px solid #2e2820;
-  }
-
-  .sidebar-progress p {
-    font-size: 11px;
-    color: var(--abu-tua);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-
-  .progress-bar {
-    height: 4px;
-    background: #2e2820;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--merah), var(--emas));
-    border-radius: 2px;
-    transition: width 0.4s ease;
-    width: 0%;
-  }
-
-  .progress-text {
-    font-size: 12px;
-    color: var(--emas-muda);
-    margin-top: 8px;
-    font-weight: 600;
-  }
+  .sidebar-progress { padding: 20px 24px; border-top: 1px solid #2e2820; }
+  .sidebar-progress p { font-size: 11px; color: var(--abu-tua); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .progress-bar { height: 4px; background: #2e2820; border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--merah), var(--emas)); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+  .progress-text { font-size: 12px; color: var(--emas-muda); margin-top: 8px; font-weight: 600; }
 
   /* ── MAIN ── */
-  .main {
-    margin-left: var(--sidebar-w);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+  .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+  .page { display: none; }
+  .page.active { display: block; }
 
-  .main-header {
-    background: linear-gradient(135deg, var(--merah) 0%, var(--merah-gelap) 100%);
-    padding: 40px 48px 36px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .main-header::before {
-    content: '';
-    position: absolute;
-    right: -40px; top: -40px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .main-header::after {
-    content: '🦅';
-    position: absolute;
-    right: 48px; top: 50%;
-    transform: translateY(-50%);
-    font-size: 72px;
-    opacity: 0.18;
-  }
-
-  .main-header .tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    color: var(--emas-muda);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-  }
-
-  .main-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: #fff;
-    font-weight: 900;
-    line-height: 1.2;
-  }
-
-  .main-header p {
-    color: rgba(255,255,255,0.75);
-    font-size: 14px;
-    margin-top: 10px;
-  }
+  /* ── HEADER ── */
+  .main-header { padding: 40px 48px 36px; position: relative; overflow: hidden; }
+  .main-header.merah { background: linear-gradient(135deg, var(--merah) 0%, var(--merah-gelap) 100%); }
+  .main-header.gelap { background: linear-gradient(135deg, #1a1410 0%, #2e2820 100%); }
+  .main-header.biru { background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 100%); }
+  .main-header.hijau { background: linear-gradient(135deg, #1a4731 0%, #0d2b1e 100%); }
+  .main-header::before { content: ''; position: absolute; right: -40px; top: -40px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+  .main-header::after { position: absolute; right: 48px; top: 50%; transform: translateY(-50%); font-size: 72px; opacity: 0.18; }
+  .main-header.merah::after { content: '🦅'; }
+  .main-header.gelap::after { content: '🏆'; }
+  .main-header.biru::after { content: '📖'; }
+  .main-header.hijau::after { content: '📅'; }
+  .main-header .tag { display: inline-block; background: rgba(255,255,255,0.15); color: var(--emas-muda); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+  .main-header h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: #fff; font-weight: 900; line-height: 1.2; }
+  .main-header p { color: rgba(255,255,255,0.75); font-size: 14px; margin-top: 10px; }
 
   /* ── CONTENT ── */
-  .content {
-    padding: 40px 48px;
-    max-width: 820px;
-  }
+  .content { padding: 40px 48px; max-width: 820px; }
 
-  /* Soal */
-  .question-block {
-    margin-bottom: 36px;
-    animation: fadeUp 0.4s ease both;
-  }
+  /* ── KUIS ── */
+  .question-block { margin-bottom: 36px; animation: fadeUp 0.4s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .question-number { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--merah); font-weight: 600; margin-bottom: 8px; }
+  .question-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--teks); margin-bottom: 18px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1.5px solid #e0d8ce; border-radius: 10px; cursor: pointer; transition: all 0.2s; background: #fff; font-size: 15px; color: var(--teks); }
+  .option-label:hover { border-color: var(--merah); background: #fff5f5; }
+  .option-label input[type="radio"] { accent-color: var(--merah); width: 18px; height: 18px; flex-shrink: 0; }
+  .option-label.selected { border-color: var(--merah); background: #fff5f5; }
+  .option-label.correct { border-color: var(--benar); background: var(--benar-bg); color: var(--benar); font-weight: 600; }
+  .option-label.wrong { border-color: var(--salah); background: var(--salah-bg); color: var(--salah); }
+  .divider { height: 1px; background: linear-gradient(90deg, var(--emas), transparent); margin: 32px 0; opacity: 0.4; }
+  .btn-submit { display: block; width: 100%; max-width: 360px; padding: 16px 32px; background: linear-gradient(135deg, var(--merah), var(--merah-gelap)); color: #fff; font-family: 'Source Sans 3', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 1px; border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 16px rgba(192,57,43,0.3); margin-top: 8px; }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.45); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn-reset { display: none; width: 100%; max-width: 360px; padding: 14px 32px; background: transparent; color: var(--merah); font-family: 'Source Sans 3', sans-serif; font-size: 14px; font-weight: 600; border: 1.5px solid var(--merah); border-radius: 10px; cursor: pointer; transition: all 0.2s; margin-top: 12px; }
+  .btn-reset:hover { background: var(--merah); color: #fff; }
+  .result-box { display: none; margin-top: 32px; padding: 28px 32px; border-radius: 14px; background: linear-gradient(135deg, #1a1410, #2e2820); color: #fff; text-align: center; animation: fadeUp 0.5s ease; }
+  .result-box .score-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--emas-muda); margin-bottom: 10px; }
+  .result-box .score-num { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--emas-muda); line-height: 1; margin-bottom: 6px; }
+  .result-box .score-pct { font-size: 20px; color: rgba(255,255,255,0.6); margin-bottom: 18px; }
+  .result-box .komentar { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* ── MATERI ── */
+  .sila-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 32px; }
+  .sila-card { background: #fff; border: 1.5px solid #e0d8ce; border-radius: 14px; padding: 24px; transition: all 0.2s; cursor: default; }
+  .sila-card:hover { border-color: var(--emas); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .sila-card .sila-num { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--abu-tua); margin-bottom: 6px; }
+  .sila-card .sila-lambang { font-size: 36px; margin-bottom: 10px; display: block; }
+  .sila-card .sila-nama { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--teks); margin-bottom: 8px; line-height: 1.4; }
+  .sila-card .sila-desc { font-size: 13px; color: var(--abu-tua); line-height: 1.7; }
+  .sila-card.full { grid-column: 1 / -1; }
+  .nilai-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .nilai-list li { display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1.5px solid #e0d8ce; border-radius: 10px; padding: 14px 16px; font-size: 14px; color: var(--teks); line-height: 1.5; }
+  .nilai-list li .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--merah); flex-shrink: 0; margin-top: 6px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--teks); margin-bottom: 6px; margin-top: 32px; }
+  .section-sub { font-size: 13px; color: var(--abu-tua); margin-bottom: 16px; }
 
-  .question-number {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--merah);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
+  /* ── PAPAN SKOR ── */
+  .score-top { display: flex; gap: 16px; margin-bottom: 28px; }
+  .score-stat { flex: 1; background: #fff; border: 1.5px solid #e0d8ce; border-radius: 12px; padding: 20px; text-align: center; }
+  .score-stat .val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--merah); line-height: 1; }
+  .score-stat .lbl { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--abu-tua); margin-top: 6px; }
+  .leaderboard { background: #fff; border: 1.5px solid #e0d8ce; border-radius: 14px; overflow: hidden; }
+  .lb-head { background: linear-gradient(135deg, #1a1410, #2e2820); padding: 16px 20px; display: grid; grid-template-columns: 48px 1fr 80px 80px; gap: 12px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--abu-tua); }
+  .lb-row { display: grid; grid-template-columns: 48px 1fr 80px 80px; gap: 12px; padding: 14px 20px; border-bottom: 1px solid #f2ede6; align-items: center; transition: background 0.15s; }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: #fdf8f0; }
+  .lb-rank { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--emas); text-align: center; }
+  .lb-rank.one { color: #ffd700; }
+  .lb-rank.two { color: #c0c0c0; }
+  .lb-rank.three { color: #cd7f32; }
+  .lb-name { font-weight: 600; font-size: 14px; }
+  .lb-name small { display: block; font-size: 11px; color: var(--abu-tua); font-weight: 400; }
+  .lb-score { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--merah); text-align: center; }
+  .lb-pct { font-size: 13px; color: var(--abu-tua); text-align: center; }
+  .tip-box { background: linear-gradient(135deg, #fff8e6, #fef3c7); border: 1.5px solid var(--emas); border-radius: 12px; padding: 18px 20px; margin-top: 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .tip-box .tip-icon { font-size: 24px; flex-shrink: 0; }
+  .tip-box p { font-size: 13.5px; color: #7a5c00; line-height: 1.6; }
+  .tip-box strong { color: #5a4000; }
 
-  .question-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--teks);
-    margin-bottom: 18px;
-    line-height: 1.5;
-  }
+  /* ── SEJARAH ── */
+  .timeline { position: relative; padding-left: 36px; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--merah), var(--emas)); opacity: 0.4; }
+  .tl-item { position: relative; margin-bottom: 32px; animation: fadeUp 0.4s ease both; }
+  .tl-dot { position: absolute; left: -30px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--merah); border: 3px solid var(--putih); box-shadow: 0 0 0 2px var(--merah); flex-shrink: 0; }
+  .tl-year { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--merah); font-weight: 700; margin-bottom: 4px; }
+  .tl-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--teks); margin-bottom: 6px; line-height: 1.4; }
+  .tl-body { font-size: 13.5px; color: #5a5048; line-height: 1.75; }
+  .quote-box { background: linear-gradient(135deg, #1a1410, #2e2820); border-radius: 14px; padding: 28px 32px; margin: 32px 0; position: relative; }
+  .quote-box::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 80px; color: var(--emas); opacity: 0.3; position: absolute; top: 10px; left: 24px; line-height: 1; }
+  .quote-box p { font-family: 'Playfair Display', serif; font-size: 17px; color: #fff; line-height: 1.7; padding-left: 20px; position: relative; z-index: 1; }
+  .quote-box cite { display: block; font-size: 12px; color: var(--emas-muda); margin-top: 12px; letter-spacing: 1px; text-transform: uppercase; padding-left: 20px; font-style: normal; }
 
-  .options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  /* ── TENTANG ── */
+  .about-hero { background: linear-gradient(135deg, var(--merah), var(--merah-gelap)); border-radius: 16px; padding: 36px; text-align: center; margin-bottom: 28px; position: relative; overflow: hidden; }
+  .about-hero::before { content: ''; position: absolute; right: -30px; top: -30px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+  .about-hero h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; font-weight: 900; margin-bottom: 10px; }
+  .about-hero p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .about-card { background: #fff; border: 1.5px solid #e0d8ce; border-radius: 12px; padding: 22px; }
+  .about-card .ac-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+  .about-card h4 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--teks); margin-bottom: 8px; }
+  .about-card p { font-size: 13px; color: var(--abu-tua); line-height: 1.7; }
+  .team-list { display: flex; flex-direction: column; gap: 12px; }
+  .team-item { background: #fff; border: 1.5px solid #e0d8ce; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+  .team-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--merah), var(--emas)); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .team-item h5 { font-weight: 700; font-size: 14px; color: var(--teks); margin-bottom: 2px; }
+  .team-item p { font-size: 12px; color: var(--abu-tua); }
+  .contact-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .contact-chip { display: inline-flex; align-items: center; gap: 7px; background: var(--abu); border-radius: 8px; padding: 10px 16px; font-size: 13px; color: var(--teks); font-weight: 500; }
 
-  .option-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-    border: 1.5px solid #e0d8ce;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: #fff;
-    font-size: 15px;
-    color: var(--teks);
-    position: relative;
-  }
-
-  .option-label:hover {
-    border-color: var(--merah);
-    background: #fff5f5;
-  }
-
-  .option-label input[type="radio"] {
-    accent-color: var(--merah);
-    width: 18px; height: 18px;
-    flex-shrink: 0;
-  }
-
-  .option-label.selected {
-    border-color: var(--merah);
-    background: #fff5f5;
-  }
-
-  .option-label.correct {
-    border-color: var(--benar);
-    background: var(--benar-bg);
-    color: var(--benar);
-    font-weight: 600;
-  }
-
-  .option-label.wrong {
-    border-color: var(--salah);
-    background: var(--salah-bg);
-    color: var(--salah);
-  }
-
-  /* Divider */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, var(--emas), transparent);
-    margin: 32px 0;
-    opacity: 0.4;
-  }
-
-  /* Tombol */
-  .btn-submit {
-    display: block;
-    width: 100%;
-    max-width: 360px;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--merah), var(--merah-gelap));
-    color: #fff;
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 4px 16px rgba(192,57,43,0.3);
-    margin-top: 8px;
-  }
-
-  .btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(192,57,43,0.45);
-  }
-
-  .btn-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .btn-reset {
-    display: block;
-    width: 100%;
-    max-width: 360px;
-    padding: 14px 32px;
-    background: transparent;
-    color: var(--merah);
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid var(--merah);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 12px;
-    display: none;
-  }
-
-  .btn-reset:hover {
-    background: var(--merah);
-    color: #fff;
-  }
-
-  /* Hasil */
-  .result-box {
-    display: none;
-    margin-top: 32px;
-    padding: 28px 32px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #1a1410, #2e2820);
-    color: #fff;
-    text-align: center;
-    animation: fadeUp 0.5s ease;
-  }
-
-  .result-box .score-label {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--emas-muda);
-    margin-bottom: 10px;
-  }
-
-  .result-box .score-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
-    font-weight: 900;
-    color: var(--emas-muda);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .result-box .score-pct {
-    font-size: 20px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 18px;
-  }
-
-  .result-box .komentar {
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.6;
-  }
-
-  /* Mobile toggle */
-  .menu-toggle {
-    display: none;
-    position: fixed;
-    top: 14px; left: 14px;
-    z-index: 200;
-    background: var(--merah);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-
+  /* Mobile */
+  .menu-toggle { display: none; position: fixed; top: 14px; left: 14px; z-index: 200; background: var(--merah); color: #fff; border: none; border-radius: 8px; padding: 8px 12px; font-size: 18px; cursor: pointer; }
   @media (max-width: 768px) {
     .menu-toggle { display: block; }
-    .sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
+    .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
     .sidebar.open { transform: translateX(0); }
     .main { margin-left: 0; }
     .main-header { padding: 60px 24px 28px; }
     .main-header h2 { font-size: 22px; }
     .content { padding: 24px 20px; }
+    .sila-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .score-top { flex-wrap: wrap; }
   }
 </style>
 </head>
@@ -438,150 +187,405 @@
     <h1>Portal Edukasi<br>Pancasila</h1>
     <p>Indonesia · Belajar Bersama</p>
   </div>
-
   <nav class="sidebar-nav">
     <div class="nav-label">Menu Utama</div>
-    <a class="nav-item active" href="#">
+    <a class="nav-item active" onclick="showPage('kuis')" href="#">
       <span class="icon">📝</span> Kuis Pancasila
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" onclick="showPage('materi')" href="#">
       <span class="icon">📖</span> Materi Pembelajaran
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" onclick="showPage('skor')" href="#">
       <span class="icon">🏆</span> Papan Skor
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" onclick="showPage('sejarah')" href="#">
       <span class="icon">📅</span> Sejarah Pancasila
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" onclick="showPage('tentang')" href="#">
       <span class="icon">❓</span> Tentang Kami
     </a>
   </nav>
-
   <div class="sidebar-progress">
     <p>Progress Kuis</p>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="progress-text" id="progressText">0 / 5 soal</div>
   </div>
 </aside>
 
 <!-- MAIN -->
 <main class="main">
-  <div class="main-header">
-    <span class="tag">📅 1 Juni · Hari Lahir Pancasila</span>
-    <h2>Kuis Hari Lahir<br>Pancasila</h2>
-    <p>Uji pemahamanmu tentang dasar negara Indonesia · 5 Soal Pilihan Ganda</p>
+
+  <!-- ══════════════════ KUIS ══════════════════ -->
+  <div class="page active" id="page-kuis">
+    <div class="main-header merah">
+      <span class="tag">📅 1 Juni · Hari Lahir Pancasila</span>
+      <h2>Kuis Hari Lahir<br>Pancasila</h2>
+      <p>Uji pemahamanmu tentang dasar negara Indonesia · 5 Soal Pilihan Ganda</p>
+    </div>
+    <div class="content">
+      <div id="quiz-form">
+        <div class="question-block" style="animation-delay:0.05s">
+          <div class="question-number">Soal 01</div>
+          <div class="question-text">Setiap tanggal berapakah masyarakat Indonesia memperingati Hari Lahir Pancasila?</div>
+          <div class="options" data-answer="b">
+            <label class="option-label"><input type="radio" name="q1" value="a"> A. 17 Agustus</label>
+            <label class="option-label"><input type="radio" name="q1" value="b"> B. 1 Juni</label>
+            <label class="option-label"><input type="radio" name="q1" value="c"> C. 1 Oktober</label>
+            <label class="option-label"><input type="radio" name="q1" value="d"> D. 20 Mei</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="question-block" style="animation-delay:0.1s">
+          <div class="question-number">Soal 02</div>
+          <div class="question-text">Siapakah tokoh bangsa yang pertama kali menyampaikan pidato tentang dasar negara bernama 'Pancasila' pada tahun 1945?</div>
+          <div class="options" data-answer="b">
+            <label class="option-label"><input type="radio" name="q2" value="a"> A. Mohammad Hatta</label>
+            <label class="option-label"><input type="radio" name="q2" value="b"> B. Soekarno</label>
+            <label class="option-label"><input type="radio" name="q2" value="c"> C. Radjiman Wedyodiningrat</label>
+            <label class="option-label"><input type="radio" name="q2" value="d"> D. Mohammad Yamin</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="question-block" style="animation-delay:0.15s">
+          <div class="question-number">Soal 03</div>
+          <div class="question-text">Berapakah jumlah sila atau prinsip dasar yang terkandung di dalam Pancasila?</div>
+          <div class="options" data-answer="c">
+            <label class="option-label"><input type="radio" name="q3" value="a"> A. 3 sila</label>
+            <label class="option-label"><input type="radio" name="q3" value="b"> B. 4 sila</label>
+            <label class="option-label"><input type="radio" name="q3" value="c"> C. 5 sila</label>
+            <label class="option-label"><input type="radio" name="q3" value="d"> D. 6 sila</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="question-block" style="animation-delay:0.2s">
+          <div class="question-number">Soal 04</div>
+          <div class="question-text">Apa lambang dari Sila Pertama Pancasila yang berbunyi 'Ketuhanan Yang Maha Esa'?</div>
+          <div class="options" data-answer="c">
+            <label class="option-label"><input type="radio" name="q4" value="a"> A. Rantai Emas</label>
+            <label class="option-label"><input type="radio" name="q4" value="b"> B. Pohon Beringin</label>
+            <label class="option-label"><input type="radio" name="q4" value="c"> C. Bintang</label>
+            <label class="option-label"><input type="radio" name="q4" value="d"> D. Kepala Banteng</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="question-block" style="animation-delay:0.25s">
+          <div class="question-number">Soal 05</div>
+          <div class="question-text">Di dalam sidang lembaga apa Pancasila pertama kali diperkenalkan oleh Ir. Soekarno?</div>
+          <div class="options" data-answer="b">
+            <label class="option-label"><input type="radio" name="q5" value="a"> A. PPKI</label>
+            <label class="option-label"><input type="radio" name="q5" value="b"> B. BPUPKI</label>
+            <label class="option-label"><input type="radio" name="q5" value="c"> C. DPR</label>
+            <label class="option-label"><input type="radio" name="q5" value="d"> D. KNIP</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <button class="btn-submit" id="btnSubmit" onclick="submitKuis()" disabled>Lihat Hasil Kuis</button>
+        <button class="btn-reset" id="btnReset" onclick="resetKuis()">🔄 Ulangi Kuis</button>
+        <div class="result-box" id="resultBox">
+          <div class="score-label">Skor Akhir Anda</div>
+          <div class="score-num" id="scoreNum">0</div>
+          <div class="score-pct" id="scorePct">dari 5 soal (0%)</div>
+          <div class="komentar" id="komentar"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="content">
-    <div id="quiz-form">
+  <!-- ══════════════════ MATERI ══════════════════ -->
+  <div class="page" id="page-materi">
+    <div class="main-header biru">
+      <span class="tag">📖 Materi Pembelajaran</span>
+      <h2>Lima Sila<br>Pancasila</h2>
+      <p>Pahami makna dan nilai-nilai luhur yang terkandung dalam setiap sila</p>
+    </div>
+    <div class="content" style="max-width:900px;">
 
-      <!-- Soal 1 -->
-      <div class="question-block" style="animation-delay:0.05s">
-        <div class="question-number">Soal 01</div>
-        <div class="question-text">Setiap tanggal berapakah masyarakat Indonesia memperingati Hari Lahir Pancasila?</div>
-        <div class="options" data-answer="b">
-          <label class="option-label"><input type="radio" name="q1" value="a"> A. 17 Agustus</label>
-          <label class="option-label"><input type="radio" name="q1" value="b"> B. 1 Juni</label>
-          <label class="option-label"><input type="radio" name="q1" value="c"> C. 1 Oktober</label>
-          <label class="option-label"><input type="radio" name="q1" value="d"> D. 20 Mei</label>
+      <div class="sila-grid">
+        <div class="sila-card">
+          <div class="sila-num">Sila Pertama</div>
+          <span class="sila-lambang">⭐</span>
+          <div class="sila-nama">Ketuhanan Yang Maha Esa</div>
+          <div class="sila-desc">Bangsa Indonesia percaya dan takwa kepada Tuhan Yang Maha Esa sesuai agama dan kepercayaan masing-masing. Lambangnya adalah <strong>Bintang Emas</strong> yang melambangkan cahaya kerohanian bagi manusia.</div>
+        </div>
+        <div class="sila-card">
+          <div class="sila-num">Sila Kedua</div>
+          <span class="sila-lambang">⛓️</span>
+          <div class="sila-nama">Kemanusiaan yang Adil dan Beradab</div>
+          <div class="sila-desc">Mengakui persamaan derajat dan hak asasi setiap manusia. Lambangnya adalah <strong>Rantai Emas</strong> — lingkaran melambangkan perempuan, persegi melambangkan laki-laki yang saling berkaitan.</div>
+        </div>
+        <div class="sila-card">
+          <div class="sila-num">Sila Ketiga</div>
+          <span class="sila-lambang">🌳</span>
+          <div class="sila-nama">Persatuan Indonesia</div>
+          <div class="sila-desc">Menempatkan persatuan dan kesatuan bangsa di atas kepentingan golongan. Lambangnya adalah <strong>Pohon Beringin</strong> yang melambangkan tempat berteduh seluruh rakyat Indonesia.</div>
+        </div>
+        <div class="sila-card">
+          <div class="sila-num">Sila Keempat</div>
+          <span class="sila-lambang">🐂</span>
+          <div class="sila-nama">Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</div>
+          <div class="sila-desc">Mengutamakan musyawarah mufakat dalam mengambil keputusan. Lambangnya adalah <strong>Kepala Banteng</strong> yang melambangkan kekuatan rakyat.</div>
+        </div>
+        <div class="sila-card full">
+          <div class="sila-num">Sila Kelima</div>
+          <span class="sila-lambang">🌾</span>
+          <div class="sila-nama">Keadilan Sosial bagi Seluruh Rakyat Indonesia</div>
+          <div class="sila-desc">Mewujudkan keadilan sosial bagi seluruh rakyat Indonesia tanpa terkecuali. Lambangnya adalah <strong>Padi dan Kapas</strong> yang melambangkan kemakmuran dan kesejahteraan pangan serta sandang.</div>
         </div>
       </div>
 
-      <div class="divider"></div>
+      <div class="section-title">Nilai-Nilai Pancasila dalam Kehidupan</div>
+      <div class="section-sub">Implementasi nyata Pancasila dalam keseharian warga negara Indonesia</div>
+      <ul class="nilai-list">
+        <li><span class="dot"></span>Menghormati perbedaan agama, suku, dan budaya antar sesama warga negara.</li>
+        <li><span class="dot"></span>Mengutamakan kepentingan bersama di atas kepentingan pribadi atau golongan.</li>
+        <li><span class="dot"></span>Berpartisipasi aktif dalam kegiatan musyawarah di lingkungan masyarakat.</li>
+        <li><span class="dot"></span>Menjaga persatuan dan menghindari tindakan yang memecah belah bangsa.</li>
+        <li><span class="dot"></span>Berlaku adil dan tidak membeda-bedakan orang dalam pelayanan publik.</li>
+        <li><span class="dot"></span>Gotong royong dan saling membantu dalam kehidupan bermasyarakat.</li>
+      </ul>
+    </div>
+  </div>
 
-      <!-- Soal 2 -->
-      <div class="question-block" style="animation-delay:0.1s">
-        <div class="question-number">Soal 02</div>
-        <div class="question-text">Siapakah tokoh bangsa yang pertama kali menyampaikan pidato tentang dasar negara bernama 'Pancasila' pada tahun 1945?</div>
-        <div class="options" data-answer="b">
-          <label class="option-label"><input type="radio" name="q2" value="a"> A. Mohammad Hatta</label>
-          <label class="option-label"><input type="radio" name="q2" value="b"> B. Soekarno</label>
-          <label class="option-label"><input type="radio" name="q2" value="c"> C. Radjiman Wedyodiningrat</label>
-          <label class="option-label"><input type="radio" name="q2" value="d"> D. Mohammad Yamin</label>
+  <!-- ══════════════════ PAPAN SKOR ══════════════════ -->
+  <div class="page" id="page-skor">
+    <div class="main-header gelap">
+      <span class="tag">🏆 Papan Skor</span>
+      <h2>Peringkat<br>Peserta Terbaik</h2>
+      <p>Daftar peserta dengan skor tertinggi dalam Kuis Pancasila</p>
+    </div>
+    <div class="content" style="max-width:760px;">
+
+      <div class="score-top">
+        <div class="score-stat">
+          <div class="val">248</div>
+          <div class="lbl">Total Peserta</div>
+        </div>
+        <div class="score-stat">
+          <div class="val">82%</div>
+          <div class="lbl">Rata-rata Skor</div>
+        </div>
+        <div class="score-stat">
+          <div class="val">37</div>
+          <div class="lbl">Skor Sempurna</div>
         </div>
       </div>
 
-      <div class="divider"></div>
-
-      <!-- Soal 3 -->
-      <div class="question-block" style="animation-delay:0.15s">
-        <div class="question-number">Soal 03</div>
-        <div class="question-text">Berapakah jumlah sila atau prinsip dasar yang terkandung di dalam Pancasila?</div>
-        <div class="options" data-answer="c">
-          <label class="option-label"><input type="radio" name="q3" value="a"> A. 3 sila</label>
-          <label class="option-label"><input type="radio" name="q3" value="b"> B. 4 sila</label>
-          <label class="option-label"><input type="radio" name="q3" value="c"> C. 5 sila</label>
-          <label class="option-label"><input type="radio" name="q3" value="d"> D. 6 sila</label>
+      <div class="leaderboard">
+        <div class="lb-head">
+          <span>#</span><span>Peserta</span><span style="text-align:center;">Benar</span><span style="text-align:center;">Skor</span>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank one">🥇</div>
+          <div class="lb-name">Dewi Rahayu<small>SMA Negeri 3 Jakarta</small></div>
+          <div class="lb-score">5/5</div>
+          <div class="lb-pct">100%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank two">🥈</div>
+          <div class="lb-name">Budi Santoso<small>SMAN 1 Surabaya</small></div>
+          <div class="lb-score">5/5</div>
+          <div class="lb-pct">100%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank three">🥉</div>
+          <div class="lb-name">Siti Aisyah<small>SMK Bina Bangsa Bandung</small></div>
+          <div class="lb-score">4/5</div>
+          <div class="lb-pct">80%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">4</div>
+          <div class="lb-name">Ahmad Fauzi<small>SMA Negeri 7 Medan</small></div>
+          <div class="lb-score">4/5</div>
+          <div class="lb-pct">80%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">5</div>
+          <div class="lb-name">Rina Wulandari<small>SMAN 2 Yogyakarta</small></div>
+          <div class="lb-score">4/5</div>
+          <div class="lb-pct">80%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">6</div>
+          <div class="lb-name">Hendri Kurniawan<small>SMA Al-Azhar Semarang</small></div>
+          <div class="lb-score">3/5</div>
+          <div class="lb-pct">60%</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">7</div>
+          <div class="lb-name">Maya Sari<small>SMAN 5 Makassar</small></div>
+          <div class="lb-score">3/5</div>
+          <div class="lb-pct">60%</div>
         </div>
       </div>
 
-      <div class="divider"></div>
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <p><strong>Ingin masuk papan skor?</strong> Selesaikan kuis dengan jawaban yang benar dan raih skor sempurna 5/5. Semakin tinggi persentase, semakin baik peringkatmu di antara ratusan peserta dari seluruh Indonesia.</p>
+      </div>
+    </div>
+  </div>
 
-      <!-- Soal 4 -->
-      <div class="question-block" style="animation-delay:0.2s">
-        <div class="question-number">Soal 04</div>
-        <div class="question-text">Apa lambang dari Sila Pertama Pancasila yang berbunyi 'Ketuhanan Yang Maha Esa'?</div>
-        <div class="options" data-answer="c">
-          <label class="option-label"><input type="radio" name="q4" value="a"> A. Rantai Emas</label>
-          <label class="option-label"><input type="radio" name="q4" value="b"> B. Pohon Beringin</label>
-          <label class="option-label"><input type="radio" name="q4" value="c"> C. Bintang</label>
-          <label class="option-label"><input type="radio" name="q4" value="d"> D. Kepala Banteng</label>
+  <!-- ══════════════════ SEJARAH ══════════════════ -->
+  <div class="page" id="page-sejarah">
+    <div class="main-header hijau">
+      <span class="tag">📅 Sejarah Pancasila</span>
+      <h2>Perjalanan Lahirnya<br>Pancasila</h2>
+      <p>Dari sidang BPUPKI hingga ditetapkan sebagai dasar negara Indonesia</p>
+    </div>
+    <div class="content">
+
+      <div class="quote-box">
+        <p>Saya menamakan ini dengan petunjuk seorang teman kita ahli bahasa — namanya ialah Pancasila. Sila artinya asas atau dasar, dan di atas kelima dasar itulah kita mendirikan negara Indonesia.</p>
+        <cite>— Ir. Soekarno, 1 Juni 1945</cite>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item" style="animation-delay:0.05s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">29 April 1945</div>
+          <div class="tl-title">Pembentukan BPUPKI</div>
+          <div class="tl-body">Badan Penyelidik Usaha-Usaha Persiapan Kemerdekaan Indonesia (BPUPKI) resmi dibentuk oleh pemerintah Jepang. Lembaga ini bertugas menyelidiki hal-hal penting yang dibutuhkan dalam rangka persiapan kemerdekaan Indonesia, termasuk merumuskan dasar negara.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.1s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">29 Mei 1945</div>
+          <div class="tl-title">Sidang Pertama BPUPKI — Usulan Mohammad Yamin</div>
+          <div class="tl-body">Dalam sidang pertama BPUPKI, Mohammad Yamin menjadi orang pertama yang mengusulkan dasar negara secara lisan. Beliau mengusulkan lima dasar: peri kebangsaan, peri kemanusiaan, peri ketuhanan, peri kerakyatan, dan kesejahteraan rakyat.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.15s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">31 Mei 1945</div>
+          <div class="tl-title">Usulan Soepomo tentang Dasar Negara</div>
+          <div class="tl-body">Prof. Dr. Soepomo menyampaikan gagasannya mengenai dasar negara. Beliau mengusulkan konsep negara integralistik yang menekankan persatuan antara rakyat dan negara, serta menolak individualisme dan liberalisme.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.2s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1 Juni 1945</div>
+          <div class="tl-title">Pidato Soekarno — Lahirnya Nama "Pancasila"</div>
+          <div class="tl-body">Ir. Soekarno menyampaikan pidato bersejarah yang memperkenalkan istilah <em>Pancasila</em> sebagai nama dasar negara. Beliau mengusulkan lima prinsip: kebangsaan Indonesia, internasionalisme atau perikemanusiaan, mufakat atau demokrasi, kesejahteraan sosial, dan Ketuhanan Yang Maha Esa. Tanggal ini kemudian diperingati sebagai Hari Lahir Pancasila.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.25s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">22 Juni 1945</div>
+          <div class="tl-title">Piagam Jakarta</div>
+          <div class="tl-body">Panitia Sembilan yang dipimpin Soekarno berhasil merumuskan Piagam Jakarta (Jakarta Charter). Dokumen ini memuat rancangan pembukaan UUD yang di dalamnya tercantum rumusan dasar negara, namun masih terdapat klausul yang kemudian diubah demi menjaga persatuan bangsa.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.3s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">18 Agustus 1945</div>
+          <div class="tl-title">Penetapan Pancasila sebagai Dasar Negara</div>
+          <div class="tl-body">Sehari setelah Proklamasi Kemerdekaan, PPKI (Panitia Persiapan Kemerdekaan Indonesia) mengesahkan UUD 1945 beserta Pembukaan yang memuat Pancasila secara resmi sebagai dasar negara Republik Indonesia. Rumusan final Pancasila tercantum dalam Pembukaan UUD 1945 alinea keempat.</div>
+        </div>
+        <div class="tl-item" style="animation-delay:0.35s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1 Juni 2016</div>
+          <div class="tl-title">Penetapan Hari Lahir Pancasila sebagai Hari Libur Nasional</div>
+          <div class="tl-body">Presiden Joko Widodo menandatangani Keputusan Presiden (Keppres) Nomor 24 Tahun 2016 yang menetapkan tanggal 1 Juni sebagai Hari Lahir Pancasila dan hari libur nasional, mengukuhkan pentingnya peringatan lahirnya ideologi bangsa Indonesia.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TENTANG ══════════════════ -->
+  <div class="page" id="page-tentang">
+    <div class="main-header merah">
+      <span class="tag">❓ Tentang Kami</span>
+      <h2>Portal Edukasi<br>Pancasila</h2>
+      <p>Platform pembelajaran interaktif untuk generasi muda Indonesia</p>
+    </div>
+    <div class="content">
+
+      <div class="about-hero">
+        <h3>🦅 Tentang Platform Ini</h3>
+        <p>Portal Edukasi Pancasila adalah platform pembelajaran digital yang dirancang khusus untuk membantu pelajar dan masyarakat umum memahami nilai-nilai luhur Pancasila sebagai dasar negara dan ideologi bangsa Indonesia.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <span class="ac-icon">🎯</span>
+          <h4>Misi Kami</h4>
+          <p>Menumbuhkan rasa cinta tanah air dan pemahaman mendalam terhadap Pancasila melalui media pembelajaran yang interaktif, menarik, dan mudah diakses oleh seluruh lapisan masyarakat Indonesia.</p>
+        </div>
+        <div class="about-card">
+          <span class="ac-icon">👁️</span>
+          <h4>Visi Kami</h4>
+          <p>Menjadi platform edukasi kewarganegaraan terdepan yang berkontribusi dalam mewujudkan generasi penerus bangsa yang berkarakter Pancasila dan berwawasan kebangsaan yang kuat.</p>
+        </div>
+        <div class="about-card">
+          <span class="ac-icon">📚</span>
+          <h4>Konten Kami</h4>
+          <p>Menyediakan kuis interaktif, materi pembelajaran terstruktur, sejarah perjalanan Pancasila, dan papan skor sebagai bentuk apresiasi bagi peserta yang berprestasi.</p>
+        </div>
+        <div class="about-card">
+          <span class="ac-icon">🌏</span>
+          <h4>Sasaran Pengguna</h4>
+          <p>Platform ini ditujukan untuk pelajar SD, SMP, SMA, mahasiswa, serta masyarakat umum yang ingin memperdalam pemahaman tentang Pancasila dan nilai-nilai kebangsaan.</p>
         </div>
       </div>
 
-      <div class="divider"></div>
-
-      <!-- Soal 5 -->
-      <div class="question-block" style="animation-delay:0.25s">
-        <div class="question-number">Soal 05</div>
-        <div class="question-text">Di dalam sidang lembaga apa Pancasila pertama kali diperkenalkan oleh Ir. Soekarno?</div>
-        <div class="options" data-answer="b">
-          <label class="option-label"><input type="radio" name="q5" value="a"> A. PPKI</label>
-          <label class="option-label"><input type="radio" name="q5" value="b"> B. BPUPKI</label>
-          <label class="option-label"><input type="radio" name="q5" value="c"> C. DPR</label>
-          <label class="option-label"><input type="radio" name="q5" value="d"> D. KNIP</label>
+      <div class="section-title">Tim Pengembang</div>
+      <div class="section-sub">Orang-orang di balik Portal Edukasi Pancasila</div>
+      <div class="team-list">
+        <div class="team-item">
+          <div class="team-avatar">👨‍💻</div>
+          <div>
+            <h5>Ahmad Rizky Pratama</h5>
+            <p>Lead Developer & Designer · Bertanggung jawab atas arsitektur sistem dan antarmuka pengguna</p>
+          </div>
+        </div>
+        <div class="team-item">
+          <div class="team-avatar">👩‍🏫</div>
+          <div>
+            <h5>Dr. Sari Indrawati, M.Pd</h5>
+            <p>Konsultan Konten Pendidikan · Pakar PKn dan Kewarganegaraan, Universitas Negeri Jakarta</p>
+          </div>
+        </div>
+        <div class="team-item">
+          <div class="team-avatar">👨‍🎨</div>
+          <div>
+            <h5>Bagas Kurniawan</h5>
+            <p>UI/UX Designer · Perancang pengalaman pengguna dan identitas visual platform</p>
+          </div>
         </div>
       </div>
 
-      <div class="divider"></div>
-
-      <button class="btn-submit" id="btnSubmit" onclick="submitKuis()" disabled>Lihat Hasil Kuis</button>
-      <button class="btn-reset" id="btnReset" onclick="resetKuis()">🔄 Ulangi Kuis</button>
-
-      <div class="result-box" id="resultBox">
-        <div class="score-label">Skor Akhir Anda</div>
-        <div class="score-num" id="scoreNum">0</div>
-        <div class="score-pct" id="scorePct">dari 5 soal (0%)</div>
-        <div class="komentar" id="komentar"></div>
+      <div class="section-title" style="margin-top:28px;">Hubungi Kami</div>
+      <div class="section-sub">Saran dan masukan sangat kami sambut dengan tangan terbuka</div>
+      <div class="contact-row">
+        <div class="contact-chip">📧 edukasi.pancasila@example.id</div>
+        <div class="contact-chip">📱 @PortalPancasila</div>
+        <div class="contact-chip">🌐 www.edukasipancasila.id</div>
       </div>
 
     </div>
   </div>
+
 </main>
 
 <script>
+  // ── NAVIGASI ──
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+  }
+
+  // ── KUIS ──
   const TOTAL = 5;
   let answered = 0;
   let submitted = false;
 
-  // Track pilihan
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', function() {
-      // Style label
       const name = this.name;
-      document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-        r.closest('.option-label').classList.remove('selected');
-      });
+      document.querySelectorAll(`input[name="${name}"]`).forEach(r => r.closest('.option-label').classList.remove('selected'));
       this.closest('.option-label').classList.add('selected');
-
-      // Hitung jawaban terisi
       const names = new Set();
       document.querySelectorAll('input[type="radio"]:checked').forEach(r => names.add(r.name));
       answered = names.size;
-
       updateProgress();
       document.getElementById('btnSubmit').disabled = answered < TOTAL;
     });
@@ -596,13 +600,11 @@
   function submitKuis() {
     if (submitted) return;
     submitted = true;
-
     let benar = 0;
     document.querySelectorAll('.options').forEach((optGroup, i) => {
       const answer = optGroup.dataset.answer;
       const name = `q${i + 1}`;
       const selected = document.querySelector(`input[name="${name}"]:checked`);
-
       optGroup.querySelectorAll('.option-label').forEach(label => {
         const val = label.querySelector('input').value;
         label.querySelector('input').disabled = true;
@@ -610,51 +612,33 @@
         else if (selected && val === selected.value && val !== answer) label.classList.add('wrong');
         label.classList.remove('selected');
       });
-
       if (selected && selected.value === answer) benar++;
     });
-
-    // Progress ke 100%
     document.getElementById('progressFill').style.width = '100%';
     document.getElementById('progressText').textContent = `${TOTAL} / ${TOTAL} soal ✓`;
-
-    // Tampilkan hasil
     const pct = Math.round((benar / TOTAL) * 100);
     document.getElementById('scoreNum').textContent = benar;
     document.getElementById('scorePct').textContent = `dari ${TOTAL} soal (${pct}%)`;
-
     let komentar = '';
     if (pct === 100) komentar = '🏆 Luar biasa! Kamu menguasai materi Pancasila dengan sempurna!';
     else if (pct >= 80) komentar = '👍 Bagus sekali! Pemahamanmu tentang Pancasila sudah sangat baik.';
     else if (pct >= 60) komentar = '📚 Cukup baik! Terus belajar untuk memperdalam pengetahuanmu.';
     else komentar = '💪 Semangat! Pelajari kembali materi Pancasila dan coba lagi ya!';
-
     document.getElementById('komentar').textContent = komentar;
     document.getElementById('resultBox').style.display = 'block';
     document.getElementById('btnSubmit').style.display = 'none';
     document.getElementById('btnReset').style.display = 'block';
-
     document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function resetKuis() {
-    submitted = false;
-    answered = 0;
-
-    document.querySelectorAll('input[type="radio"]').forEach(r => {
-      r.checked = false;
-      r.disabled = false;
-    });
-
-    document.querySelectorAll('.option-label').forEach(l => {
-      l.classList.remove('selected', 'correct', 'wrong');
-    });
-
+    submitted = false; answered = 0;
+    document.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; r.disabled = false; });
+    document.querySelectorAll('.option-label').forEach(l => l.classList.remove('selected', 'correct', 'wrong'));
     document.getElementById('resultBox').style.display = 'none';
     document.getElementById('btnSubmit').style.display = 'block';
     document.getElementById('btnSubmit').disabled = true;
     document.getElementById('btnReset').style.display = 'none';
-
     updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -663,7 +647,6 @@
     document.getElementById('sidebar').classList.toggle('open');
   }
 
-  // Tutup sidebar saat klik luar (mobile)
   document.addEventListener('click', function(e) {
     const sidebar = document.getElementById('sidebar');
     const toggle = document.querySelector('.menu-toggle');
